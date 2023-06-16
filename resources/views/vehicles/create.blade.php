@@ -49,8 +49,8 @@
                                         <td>{{ $book->vehicle_id }}</td>
                                         <td>
                                             @if($book->status === null)
-                                                <p class="text-danger">Pending</p>
-                                            @elseif($vehicle->status === 'Taken')
+                                                <p class="text-warning">Pending</p>
+                                            @elseif($book->status === 'Taken')
                                                 <p class="text-success fw-bolder">{{ $book->status }}</p>
                                             @else
                                                 <p class="text-danger font-weight-bold">{{ $book->status }}</p>
@@ -60,13 +60,35 @@
                                             <form action="{{ route('booktaxis.update', $book->id) }}" method="POST" id="statusForm">
                                                 @csrf
                                                 @method('PUT')
-                                                <button class="btn btn-success" name="status" value="Taken" type="submit">Take Job</button>
-                                                <button class="btn btn-danger" name="status" value="Taken" type="submit">Reject</button>
+                                                <button onclick="showAlert()" class="btn btn-success btn-sm" name="status" value="Taken" type="submit">Take Job</button>
+                                                <button onclick="showDAlert()" class="btn btn-danger btn-sm" name="status" value="Rejected" type="submit">Reject</button>
                                             </form>
                                         </td>
 
                                     </tr>
                                 @endforeach
+
+                                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.css">
+
+                                {{--                            <button onclick="showAlert()" class="btn btn-primary">Show Alert</button>--}}
+
+                                <!-- Bootstrap JS and jQuery -->
+                                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+                                <!-- SweetAlert JS -->
+                                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.17/dist/sweetalert2.min.js"></script>
+
+                                <script>
+                                    // Display a basic SweetAlert alert
+                                    function showAlert() {
+                                        Swal.fire('Success', 'Booking was successfully Taken', 'success');
+                                    }
+
+                                    function showDAlert() {
+                                        Swal.fire('Declined', 'Declined Booking', 'error');
+                                    }
+                                </script>
+
                                 </tbody>
                             </table>
                         @else

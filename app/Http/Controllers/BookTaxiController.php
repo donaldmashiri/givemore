@@ -75,7 +75,11 @@ class BookTaxiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $apply = BookTaxi::findOrFail($id);
+        $apply->status = $request->input('status');
+        $apply->save();
+
+        return redirect()->back()->with('status', 'Booking was responded');
     }
 
     /**

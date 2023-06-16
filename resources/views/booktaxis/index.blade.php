@@ -39,12 +39,18 @@
                                             <td>
                                                 @if($book->status === null)
                                                     <p class="text-danger">Pending</p>
-                                                @elseif($vehicle->status === 'Taken')
+                                                @elseif($book->status === 'Taken')
                                                     <p class="text-success fw-bolder">{{ $book->status }}</p>
                                                 @else
                                                     <p class="text-danger font-weight-bold">{{ $book->status }}</p>
                                                 @endif
                                             </td>
+                                            @if($book->status != null)
+                                                <td>
+                                                    <a href="https://wa.me/263779400263?text=How%20are%20you?" target="_blank" class="btn btn-sm btn-success">Send</a>
+                                                </td>
+                                            @endif
+
 {{--                                            <td>--}}
 {{--                                                <form action="{{ route('vehicles.update', $vehicle->id) }}" method="POST" id="statusForm">--}}
 {{--                                                    @csrf--}}
