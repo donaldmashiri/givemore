@@ -11,7 +11,7 @@
                 <div class="col-lg-6 about-right">
                     <h1>ONLINE PIRATE TAXI MONITORING SYSTEM</h1>
                     <p>online system that seeks to ensure safety of both taxi drivers and passengers onboard pirate taxis. The system also ensures convenience in the way the pirate taxis are operated </p>
-                    <a class="text-uppercase primary-btn" href="#">Register</a>
+                    <a class="text-uppercase primary-btn" href="/register">Register</a>
                 </div>
             </div>
         </div>

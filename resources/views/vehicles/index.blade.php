@@ -2,6 +2,20 @@
 
 @section('content')
 
+
+    <div class="container">
+        <div class="row">
+            <div class="d-flex flex-row bd-highlight mb-3 bg-primary p-2">
+                <div class="p-2 bd-highlight">
+                    <a href="{{ route('vehicles.index') }}" class="btn btn-primary btn-sm">Your Vehicles</a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="{{ route('vehicles.create') }}" class="btn btn-primary btn-sm">Notifications</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">

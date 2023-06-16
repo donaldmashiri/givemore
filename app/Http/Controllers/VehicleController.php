@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BookTaxi;
 use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ class VehicleController extends Controller
      */
     public function create()
     {
-        //
+//        $books = BookTaxi::where('user_id', Auth::user()->id)->get();
+        return view('vehicles.create')->with('books', BookTaxi::all());
     }
 
     /**

@@ -28,6 +28,11 @@
     <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
+    <!-- Scripts -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </head>
 <body>
 <header id="header">
@@ -38,12 +43,38 @@
             <h1 class="text-white">PIRATE</h1>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li class="menu-active"><a href="index.html">Home</a></li>
-                    <li><a href="/passregister">Passenger Register</a></li>
-                    <li><a href="/passlogin">Passenger Login</a></li>
-                    <li><a href="{{ route('booktaxis.create') }}">Book A Taxi</a></li>
-                    <li><a href="{{ route('booktaxis.index') }}">Booked</a></li>
-                    <li><a href="/login">Taxi Driver</a></li>
+                    <li class="menu-active"><a href="/">Home</a></li>
+
+                    @guest
+                        <li><a href="/passregister">Passenger Register</a></li>
+                        <li><a href="/passlogin">Passenger Login</a></li>
+
+                        <li><a href="/login">Taxi Driver</a></li>
+
+                    @else
+
+                        <li><a href="{{ route('booktaxis.create') }}">Book A Taxi</a></li>
+                        <li><a href="{{ route('booktaxis.index') }}">Booked</a></li>
+
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item  text-danger" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                    @endguest
+
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>

@@ -58,7 +58,7 @@
                                     </tbody>
                                 </table>
                             @else
-                                <h1 class="text-center alert alert-danger">No Vehicles have been submited for Evaluation</h1>
+                                <h1 class="text-center alert alert-danger">You havent Booked</h1>
                             @endif
 
                         </div>
