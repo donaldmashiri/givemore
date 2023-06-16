@@ -52,7 +52,7 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -75,6 +75,19 @@
         </nav>
 
         <main class="py-4">
+
+{{--            @if(Auth::user()->role === 'operator')--}}
+{{--                <div class="container">--}}
+{{--                    <div class="row">--}}
+{{--                        <div class="d-flex flex-row bd-highlight mb-3 bg-secondary p-2">--}}
+{{--                            <div class="p-2 bd-highlight">--}}
+{{--                                <a href="{{ route('vehicles.index') }}" class="btn btn-primary btn-sm">Vehicles</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            @endif--}}
+
             @yield('content')
         </main>
     </div>

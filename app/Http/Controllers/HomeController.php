@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +26,25 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if(Auth::user()->role === "admin"){
+            $users = User::where('role', 'operator')->get();
+            return view('taxidrivers.index')->with('users', $users);
+        }elseif(Auth::user()->role === "user"){
+            return 123;
+        } else{
+            return view('home');
+        }
     }
+
+    public function all_taxidrivers()
+    {
+        $users = User::where('role', 'operator')->get();
+        return view('all_taxidrivers')->with('users', $users);
+    }
+
+    public function all_vehicles()
+    {
+        return view('all_vehicles')->with('vehicles', Vehicle::all());
+    }
+
 }

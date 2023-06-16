@@ -6,15 +6,15 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class TaxiDriverController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::where('role', 'user')->get();
-        return view('users.index')->with('users', $users);
+        $users = User::where('role', 'operator')->get();
+        return view('taxidrivers.index')->with('users', $users);
     }
 
     /**
@@ -30,28 +30,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
-        $request->validate([
-            'role' => ['required', 'max:255'],
-            'name' => ['required', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'image' => ['required', 'image', 'max:255', 'mimes:png,jpg,jpeg'],
-            'phone' => ['required', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-
-        $image = $request->image->store('images');
-
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'image' => $image,
-            'role' => $request->role,
-            'phone' => $request->phone,
-            'password' => $request->password,
-        ]);
-
-        return redirect()->back()->with('status', 'Account Successfully Created');
+        //
     }
 
     /**
