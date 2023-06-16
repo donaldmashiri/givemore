@@ -26,3 +26,4 @@ Route::get('/all_vehicles', [App\Http\Controllers\HomeController::class, 'all_ve
 Route::resource('/users', \App\Http\Controllers\UserController::class);
 Route::resource('/taxidrivers', \App\Http\Controllers\TaxiDriverController::class);
 Route::resource('/vehicles', \App\Http\Controllers\VehicleController::class);
+Route::resource('/booktaxis', \App\Http\Controllers\BookTaxiController::class);

@@ -10,9 +10,13 @@
 
                 <div class="col-lg-12">
                     <div class="col-lg-10  col-md-10 header-right">
-                        <h4 class="pb-30">Book Your Texi Online!</h4>
-{{--                        <h4 class="alert alert-success">Successfully Booked</h4>--}}
-                        <form class="form">
+                        <h4 class="pb-30">Book Your Taxi Online!</h4>
+
+                        <h4>
+                            @include('partials.errors')
+                        </h4>
+                        <form class="form" method="POST" action="{{ route('booktaxis.store') }}" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group">
                                 <div class="default-select" id="default-select">
                                     <select style="display: none;" name="from_des">
@@ -20,12 +24,12 @@
                                         <option value="1">Gweru CBD</option>
                                         <option value="2">MKoba</option>
                                         <option value="3">Mambo</option>
-                                    </select><div class="nice-select" tabindex="0"><span class="current">From Destination</span><ul class="list"><li data-value="" class="option selected disabled">From Destination</li><li data-value="1" class="option">Destination One</li><li data-value="2" class="option">Destination Two</li><li data-value="3" class="option">Destination Three</li></ul></div>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <div class="default-select" id="default-select2">
-                                    <select style="display: none;" name="from_des">
+                                    <select style="display: none;" name="to_des">
                                         <option value="" disabled="" selected="" hidden="">To Destination</option>
                                         <option value="1">Gweru CBD</option>
                                         <option value="2">MKoba</option>
@@ -35,7 +39,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group dates-wrap">
-                                    <input id="datepicker2" class="dates form-control hasDatepicker" placeholder="Date &amp; time" type="datetime-local">
+                                    <input id="datepicker2" name="date_time" class="dates form-control hasDatepicker" placeholder="Date &amp; time" type="datetime-local">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
                                     </div>
@@ -46,12 +50,9 @@
                                 <div class="default-select" id="default-select3">
                                     <select style="display: none;" name="vehicle_id">
                                         <option value="" disabled="" selected="" hidden="">Available Taxi</option>
-                                        {{--                                        @foreach($vehicles as $vehicle)--}}
-                                        {{--                                            <option value="{{ $vehicle->id }}">{{ $vehicle->name }}</option>--}}
-                                        {{--                                        @endforeach--}}
-                                        <option value="Gweru CBD">Gweru CBD</option>
-                                        <option value="MKoba">MKoba</option>
-                                        <option value="Mambo">Mambo</option>
+                                        @foreach($vehicles as $vehicle)
+                                            <option value="{{ $vehicle->id }}">{{ $vehicle->make }} ({{ $vehicle->model }})</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

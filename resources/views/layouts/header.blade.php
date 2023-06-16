@@ -39,8 +39,10 @@
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="index.html">Home</a></li>
-                    <li><a href="/passregister">Passenger</a></li>
-                    <li><a href="/booktaxi">Book A Taxi</a></li>
+                    <li><a href="/passregister">Passenger Register</a></li>
+                    <li><a href="/passlogin">Passenger Login</a></li>
+                    <li><a href="{{ route('booktaxis.create') }}">Book A Taxi</a></li>
+                    <li><a href="{{ route('booktaxis.index') }}">Booked</a></li>
                     <li><a href="/login">Taxi Driver</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
