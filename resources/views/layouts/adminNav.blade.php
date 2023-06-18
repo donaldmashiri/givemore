@@ -11,6 +11,9 @@
                 <div class="p-2 bd-highlight">
                     <a href="/all_vehicles" class="btn btn-primary btn-sm">Vehicles</a>
                 </div>
+                <div class="p-2 bd-highlight">
+                    <a href="{{ route('chats.index') }}" class="btn btn-primary btn-sm">Chats</a>
+                </div>
             </div>
         </div>
     </div>

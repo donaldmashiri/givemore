@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BookTaxi;
 use App\Models\User;
 use App\Models\Vehicle;
 use Illuminate\Http\Request;
@@ -30,7 +31,7 @@ class HomeController extends Controller
             $users = User::where('role', 'operator')->get();
             return view('taxidrivers.index')->with('users', $users);
         }elseif(Auth::user()->role === "user"){
-            return view('booktaxis.index');
+            return view('booktaxis.index')->with('books', BookTaxi::all());
         } else{
             return view('home');
         }

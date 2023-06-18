@@ -47,7 +47,9 @@
                                             </td>
                                             @if($book->status != null)
                                                 <td>
-                                                    <a href="https://wa.me/263779400263?text=How%20are%20you?" target="_blank" class="btn btn-sm btn-success">Send</a>
+                                                    <a href="https://wa.me/263779400263?text={{ $book->from_des }} - {{ $book->to_des }}
+                                                    {{ $book->vehicle->make }} ({{ $book->vehicle->plate_number }})
+                                                    [https://goo.gl/maps/K2sWpVGLbcokrGJ98]" target="_blank" class="btn btn-sm btn-success">Send</a>
                                                 </td>
                                             @endif
 

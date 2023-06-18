@@ -8,6 +8,17 @@
 
             <div class="row">
 
+                <div class="row">
+                    <h2>Available Taxis</h2>
+                    @foreach($vehicles as $vehicle)
+                        <div class="col-lg-2 border border-warning single-service m-1">
+                            <h6 class="p-1">{{ $vehicle->make }} ({{ $vehicle->model }})</h6>
+                        </div>
+                    @endforeach
+                </div>
+                <hr>
+
+
                 <div class="col-lg-12">
                     <div class="col-lg-10  col-md-10 header-right">
                         <h4 class="pb-30">Book Your Taxi Online!</h4>
@@ -15,15 +26,15 @@
                         <h4>
                             @include('partials.errors')
                         </h4>
-                        <form class="form" method="POST" action="{{ route('booktaxis.store') }}" enctype="multipart/form-data">
+                        <form class="form mt-1" method="POST" action="{{ route('booktaxis.store') }}" enctype="multipart/form-data">
                             @csrf
-                            <div class="form-group">
-                                <div class="default-select" id="default-select">
-                                    <select style="display: none; background-color: white" name="from_des">
+                            <div style="background-color: white"  class="form-group">
+                                <div class="default-select" style="background-color: white" id="default-select">
+                                    <select style="background-color: white" name="from_des">
                                         <option value="" disabled="" selected="" hidden="">From Destination</option>
-                                        <option value="1">Gweru CBD</option>
-                                        <option value="2">MKoba</option>
-                                        <option value="3">Mambo</option>
+                                        <option value="Gweru CBD">Gweru CBD</option>
+                                        <option value="MKoba">MKoba</option>
+                                        <option value="Mambo">Mambo</option>
                                     </select>
                                 </div>
                             </div>
@@ -31,9 +42,9 @@
                                 <div class="default-select" id="default-select2">
                                     <select style="display: none;" background-color: white name="to_des">
                                         <option value="" disabled="" selected="" hidden="">To Destination</option>
-                                        <option value="1">Gweru CBD</option>
-                                        <option value="2">MKoba</option>
-                                        <option value="3">Mambo</option>
+                                        <option value="Gweru CBD">Gweru CBD</option>
+                                        <option value="MKoba">MKoba</option>
+                                        <option value="Mambo">Mambo</option>
                                     </select>
                                 </div>
                             </div>

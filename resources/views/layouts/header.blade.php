@@ -44,6 +44,7 @@
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li class="menu-active"><a href="/">Home</a></li>
+                    <li><a href="/adminlogin">Admin Login</a></li>
 
                     @guest
                         <li><a href="/passregister">Passenger Register</a></li>
@@ -55,6 +56,7 @@
 
                         <li><a href="{{ route('booktaxis.create') }}">Book A Taxi</a></li>
                         <li><a href="{{ route('booktaxis.index') }}">Booked</a></li>
+                        <li><a href="{{ route('chats.index') }}">Chat</a></li>
 
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link text-white dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
