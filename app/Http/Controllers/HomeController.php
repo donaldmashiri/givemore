@@ -30,7 +30,7 @@ class HomeController extends Controller
             $users = User::where('role', 'operator')->get();
             return view('taxidrivers.index')->with('users', $users);
         }elseif(Auth::user()->role === "user"){
-            return view('booktaxi');
+            return view('booktaxis.index');
         } else{
             return view('home');
         }

@@ -20,7 +20,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Booked Reservation') }}</div>
+                <div class="card-header">{{ __('User Details') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))

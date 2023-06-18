@@ -64,7 +64,7 @@
                                     </tbody>
                                 </table>
                             @else
-                                <h1 class="text-center alert alert-danger">You havent Booked</h1>
+                                <h1 class="text-center alert alert-danger">You have not Booked</h1>
                             @endif
 
                         </div>

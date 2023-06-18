@@ -41,8 +41,8 @@
                                     <th>Make</th>
                                     <th>Model</th>
                                     <th>Year</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
+                                    <th>Plate#</th>
+                                    <th>Engine#</th>
                                     <th>Status</th>
                                 </tr>
                                 </thead>
@@ -57,7 +57,7 @@
                                         <td>{{ $vehicle->engine_number }}</td>
                                         <td>
                                             @if($vehicle->status === null)
-                                                <p class="text-danger">Not Yet Approved</p>
+                                                <p class="text-danger">Not Yet Evaluated</p>
                                                 @else
                                                 {{ $vehicle->status }}
                                             @endif

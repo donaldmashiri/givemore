@@ -39,7 +39,7 @@
                                         <td>{{ $vehicle->engine_number }}</td>
                                         <td>
                                             @if($vehicle->status === null)
-                                                <p class="text-danger">Not Yet Approved</p>
+                                                <p class="text-danger">Not Yet Evaluated</p>
                                             @elseif($vehicle->status === 'Approved')
                                                 <p class="text-success fw-bolder">{{ $vehicle->status }}</p>
                                             @else

@@ -19,7 +19,7 @@
                             @csrf
                             <div class="form-group">
                                 <div class="default-select" id="default-select">
-                                    <select style="display: none;" name="from_des">
+                                    <select style="display: none; background-color: white" name="from_des">
                                         <option value="" disabled="" selected="" hidden="">From Destination</option>
                                         <option value="1">Gweru CBD</option>
                                         <option value="2">MKoba</option>
@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="default-select" id="default-select2">
-                                    <select style="display: none;" name="to_des">
+                                    <select style="display: none;" background-color: white name="to_des">
                                         <option value="" disabled="" selected="" hidden="">To Destination</option>
                                         <option value="1">Gweru CBD</option>
                                         <option value="2">MKoba</option>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="input-group dates-wrap">
-                                    <input id="datepicker2" name="date_time" class="dates form-control hasDatepicker" placeholder="Date &amp; time" type="datetime-local">
+                                    <input style="background-color: white" id="datepicker2" name="date_time" class="dates form-control hasDatepicker" placeholder="Date &amp; time" type="datetime-local">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
                                     </div>
@@ -48,7 +48,7 @@
 
                             <div class="form-group">
                                 <div class="default-select" id="default-select3">
-                                    <select style="display: none;" name="vehicle_id">
+                                    <select style="display: none; background-color: white" name="vehicle_id">
                                         <option value="" disabled="" selected="" hidden="">Available Taxi</option>
                                         @foreach($vehicles as $vehicle)
                                             <option value="{{ $vehicle->id }}">{{ $vehicle->make }} ({{ $vehicle->model }})</option>
