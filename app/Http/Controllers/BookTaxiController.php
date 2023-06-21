@@ -79,8 +79,15 @@ class BookTaxiController extends Controller
         $apply->status = $request->input('status');
         $apply->save();
 
+        if ($apply->status === 'Taken') {
+            $vehicle = Vehicle::findOrFail($apply->vehicle_id); // Use the appropriate column name for vehicle ID
+            $vehicle->statusAvailable = 'not available';
+            $vehicle->save();
+        }
+
         return redirect()->back()->with('status', 'Booking was responded');
     }
+
 
     /**
      * Remove the specified resource from storage.

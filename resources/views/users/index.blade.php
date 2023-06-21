@@ -9,7 +9,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <h1 class="text-center">All Passengers Drivers</h1>
+                    <h1 class="text-center">All Passengers </h1>
 
                     <div class="card-body">
                         @if($users->count() > 0)
@@ -42,7 +42,7 @@
                                 </tbody>
                             </table>
                         @else
-                            <h1 class="">No Taxi Drivers Found</h1>
+                            <h1 class="">No Passengers Found</h1>
                         @endif
 
                     </div>

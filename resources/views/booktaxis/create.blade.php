@@ -13,6 +13,13 @@
                     @foreach($vehicles as $vehicle)
                         <div class="col-lg-2 border border-warning single-service m-1">
                             <h6 class="p-1">{{ $vehicle->make }} ({{ $vehicle->model }})</h6>
+                            @if($vehicle->statusAvailable === null)
+                                <p class="text-success">Available</p>
+                            @else
+                                <p class="text-danger">{{ $vehicle->statusAvailable }}</p>
+                            @endif
+
+
                         </div>
                     @endforeach
                 </div>
@@ -62,7 +69,12 @@
                                     <select style="display: none; background-color: white" name="vehicle_id">
                                         <option value="" disabled="" selected="" hidden="">Available Taxi</option>
                                         @foreach($vehicles as $vehicle)
-                                            <option value="{{ $vehicle->id }}">{{ $vehicle->make }} ({{ $vehicle->model }})</option>
+                                            @if($vehicle->statusAvailable === null)
+                                                <option value="{{ $vehicle->id }}">{{ $vehicle->make }} ({{ $vehicle->model }})</option>
+                                            @else
+                                                <p class="text-danger">No Available Text</p>
+                                            @endif
+
                                         @endforeach
                                     </select>
                                 </div>
