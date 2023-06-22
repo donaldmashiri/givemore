@@ -10,7 +10,7 @@
                     <a href="{{ route('vehicles.index') }}" class="btn btn-primary btn-sm">Your Vehicles</a>
                 </div>
                 <div class="p-2 bd-highlight">
-                    <a href="{{ route('vehicles.create') }}" class="btn btn-primary btn-sm">Notifications</a>
+                    <a href="{{ route('vehicles.create') }}" class="btn btn-primary btn-sm">Notifications  <span class="badge bg-secondary">{{ $bookTaxisCount }}</span></a>
                 </div>
             </div>
         </div>

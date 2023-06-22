@@ -18,9 +18,9 @@ class VehicleController extends Controller
 //        if(Auth::user()->role === "admin"){
 //            return view('vehicles.index')->with('vehicles', Vehicle::all());
 //        }
-
+        $bookTaxisCount = BookTaxi::count();
         $vehicles = Vehicle::where('user_id', Auth::user()->id)->get();
-        return view('vehicles.index', compact('vehicles'));
+        return view('vehicles.index', compact('vehicles', 'bookTaxisCount'));
     }
 
     /**
@@ -28,8 +28,9 @@ class VehicleController extends Controller
      */
     public function create()
     {
-//        $books = BookTaxi::where('user_id', Auth::user()->id)->get();
-        return view('vehicles.create')->with('books', BookTaxi::all());
+        $books = BookTaxi::all();
+        $bookTaxisCount = BookTaxi::count();
+        return view('vehicles.create', compact('books', 'bookTaxisCount'));
     }
 
     /**
@@ -82,7 +83,7 @@ class VehicleController extends Controller
         $apply->status = $request->input('status');
         $apply->save();
 
-        return redirect()->back()->with('status', 'Vehicle was Successfully evaluated');
+        return redirect()->back()->with('status', 'Driver & Vehicle was Successfully evaluated');
     }
 
     /**
